@@ -66,7 +66,7 @@ public class Estudiante {
      * @param cuenta el nuevo número de cuenta del estudiante.
      */
     public void setCuenta(int cuenta) {
-        // Aquí va su código.
+        this.cuenta = cuenta;
     }
 
     /**
@@ -84,7 +84,7 @@ public class Estudiante {
      * @param promedio el nuevo promedio del estudiante.
      */
     public void setPromedio(double promedio) {
-        // Aquí va su código.
+        this.promedio = promedio;
     }
 
     /**
@@ -102,7 +102,7 @@ public class Estudiante {
      * @param edad la nueva edad del estudiante.
      */
     public void setEdad(int edad) {
-        // Aquí va su código.
+        this.edad = edad;
     }
 
     /**
@@ -111,8 +111,11 @@ public class Estudiante {
      * @return una representación en cadena del estudiante.
      */
     public String toString() {
-        // Aquí va su código.
-        return "123";
+        return String.format("" +
+                "Nombre   : %s\n" +
+                "Cuenta   : %09d\n" +
+                "Promedio : %02.2f\n" +
+                "Edad     : %d", nombre, cuenta, promedio, edad);
     }
 
     /**
@@ -125,7 +128,12 @@ public class Estudiante {
      * <tt>false</tt> en otro caso.
      */
     public boolean equals(Estudiante estudiante) {
-        // Aquí va su código.
-        return true;
+        if (estudiante == null) return false;
+        boolean tienenElMismoNombre = nombre.equals(estudiante.nombre);
+        boolean tienenLaMismaCuenta = cuenta == estudiante.cuenta;
+        boolean tienenLaMismaEdad = edad == estudiante.edad;
+        boolean tienenElMismoPromedio = promedio == estudiante.promedio;
+        return tienenElMismoNombre && tienenLaMismaCuenta && tienenLaMismaEdad && tienenElMismoPromedio;
     }
+
 }
